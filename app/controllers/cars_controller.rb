@@ -51,6 +51,7 @@ class CarsController < ApplicationController
     end
   end
 
+
   # DELETE /cars/1
   # DELETE /cars/1.json
   def destroy
@@ -59,6 +60,16 @@ class CarsController < ApplicationController
       format.html { redirect_to cars_url, notice: 'Car was successfully destroyed.' }
       format.json { head :no_content }
     end
+  end
+
+  # Car Enter and exit
+  def carenter
+    @car = Car.new
+    @cars = Car.all
+  end
+
+  def carexit
+    @cars = Car.all
   end
 
   private

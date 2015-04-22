@@ -1,0 +1,45 @@
+<%- model_class = Parking -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => model_class.model_name.human.pluralize.titleize %></h1>
+</div>
+
+<div class="row">
+  <div class="col-md-4">
+    <%= image_tag("car_logo2.png") %>
+
+    <%= form_tag("/enter", method: "get") do %>
+      <%= text_field_tag(:plate) %>
+      <%= submit_tag("Enter") %>
+    <% end %>
+
+  </div>
+
+
+  <div class="col-md-8">
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th><%= model_class.human_attribute_name(:id) %></th>
+          <th> plate </th>
+          <th><%= model_class.human_attribute_name(:enter_time) %></th>
+          <th><%= model_class.human_attribute_name(:exit_time) %></th>
+          <th><%= model_class.human_attribute_name(:park_time) %></th>
+          <th><%= model_class.human_attribute_name(:leave_time) %></th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @parkings.each do |parking| %>
+          <tr>
+            <td><%= link_to parking.id, parking_path(parking) %></td>
+            <td><%= parking.car.plate %></td>
+            <td><%= parking.enter_time %></td>
+            <td><%= parking.exit_time %></td>
+            <td><%= parking.park_time %></td>
+            <td><%= parking.leave_time %></td>
+
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>

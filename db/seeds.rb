@@ -5,3 +5,12 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+
+
+100.times do |i|
+  Lot.create(mark: "Lot ##{i}", area: "A area", coordinate: "row:5, col:10")
+end
+
+100.times do |i|
+  Car.create(plate: "沪CJ #{i}")
+end

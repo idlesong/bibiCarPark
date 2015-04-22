@@ -61,6 +61,43 @@ class ParkingsController < ApplicationController
     end
   end
 
+  # Car Enter and exit
+  def enter
+    begin
+      if(params[:plate])
+       @car = Car.find_by_plate!(params[:plate])
+       @parking = @car.parkings.create(enter_time: Time.now)
+     else
+     end
+
+    rescue ActiveRecord::RecordNotFound
+      @car = Car.create(plate: params[:plate])
+      @parking = @car.parkings.create(enter_time: Time.now)
+    end
+
+
+    @parkings = Parking.all
+  end
+
+  def exit
+    begin
+      if(params[:plate])
+        @car = Car.find_by_plate!(params[:plate])
+        @parking = @car.parkings.first
+        @parking.exit_time = Time.now
+        @parking.save
+      else
+      end
+
+    rescue ActiveRecord::RecordNotFound
+      #@car = Car.create(plate: params[:plate])
+      #@parking = @car.parkings.create(enter_time: Time.now)
+    end
+
+
+    @parkings = Parking.all
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_parking
@@ -69,6 +106,6 @@ class ParkingsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def parking_params
-      params.require(:parking).permit(:enter_time, :exit_time, :park_time, :leave_time)
+      params.require(:parking).permit(:enter_time, :exit_time, :park_time, :leave_time, :plate)
     end
 end

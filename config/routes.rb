@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
   resources :parkings
+  get 'enter', to: 'parkings#enter'
+  get 'exit', to: 'parkings#exit'
 
   resources :cars
 
