@@ -1,0 +1,32 @@
+<%= form_for @parking, :html => { :class => 'form-horizontal' } do |f| %>
+  <div class="control-group">
+    <%= f.label :enter_time, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :enter_time, :class => 'text_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :exit_time, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :exit_time, :class => 'text_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :park_time, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :park_time, :class => 'text_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :leave_time, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :leave_time, :class => 'text_field' %>
+    </div>
+  </div>
+
+  <div class="form-actions">
+    <%= f.submit nil, :class => 'btn btn-primary' %>
+    <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                parkings_path, :class => 'btn' %>
+  </div>
+<% end %>

@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  enter_time: 2015-04-22 09:20:23
+  exit_time: 2015-04-22 09:20:23
+  park_time: 2015-04-22 09:20:23
+  leave_time: 2015-04-22 09:20:23
+
+two:
+  enter_time: 2015-04-22 09:20:23
+  exit_time: 2015-04-22 09:20:23
+  park_time: 2015-04-22 09:20:23
+  leave_time: 2015-04-22 09:20:23

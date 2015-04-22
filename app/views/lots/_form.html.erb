@@ -1,0 +1,26 @@
+<%= form_for @lot, :html => { :class => 'form-horizontal' } do |f| %>
+  <div class="control-group">
+    <%= f.label :mark, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :mark, :class => 'text_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :area, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :area, :class => 'text_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :coordinate, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :coordinate, :class => 'text_field' %>
+    </div>
+  </div>
+
+  <div class="form-actions">
+    <%= f.submit nil, :class => 'btn btn-primary' %>
+    <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                lots_path, :class => 'btn' %>
+  </div>
+<% end %>

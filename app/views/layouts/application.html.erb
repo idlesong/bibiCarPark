@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>BibiCarPark</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+  <nav class="navbar navbar-default">
+    <div class="container-fluid">
+      <!-- Brand and toggle get grouped for better mobile display -->
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="#">bibiCarPark</a>
+      </div>
+
+      <!-- Collect the nav links, forms, and other content for toggling -->
+      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <ul class="nav navbar-nav">
+          <li class="active"><a href="#">Reports <span class="sr-only">(current)</span></a></li>
+          <li><a href="#">parking</a></li>
+          <li><a href="#">Enter</a></li>
+          <li><a href="#">Exit</a></li>
+          <li><a href="#">Logs</a></li>
+          <li><a href="#">Settings</a></li>
+        </ul>
+      </div>
+
+    </div><!-- /.container-fluid -->
+  </nav>
+
+  <div class="container-fluid" >
+    <div class="row">
+      <div class="col-md-3">
+        <div class="list-group">
+          <a href="#" class="list-group-item disabled">
+            Control Center
+          </a>
+          <a href="#" class="list-group-item">Reports</a>
+          <a href="#" class="list-group-item">Park Cars</a>
+          <a href="#" class="list-group-item">Enter</a>
+          <a href="#" class="list-group-item">Exit</a>
+          <a href="#" class="list-group-item">Analysis</a>
+          <a href="#" class="list-group-item">Settlement</a>
+          <a href="#" class="list-group-item">Settlement logs</a>
+          <a href="#" class="list-group-item">duty logs</a>
+        </div>
+      </div>
+      <div class="col-md-9">
+        <%= yield %>
+      </div>
+    </div>
+
+  </div>
+
+</body>
+</html>
