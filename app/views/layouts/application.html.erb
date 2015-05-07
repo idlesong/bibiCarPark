@@ -29,6 +29,12 @@
           <li><a href="#">Exit</a></li>
           <li><a href="#">Logs</a></li>
           <li><a href="#">Settings</a></li>
+
+          <% if logged_in? %>
+          <li><%= link_to "Log out", logout_path, method: "delete" %></li>
+          <% else %>
+          <li><a href="#">login</a></li>
+          <% end %>
         </ul>
       </div>
 
@@ -42,7 +48,7 @@
           <a href="#" class="list-group-item disabled">
             Control Center
           </a>
-          <a href="/parkings" class="list-group-item">Parking Cars</a>
+          <a href="/parkings" class="list-group-item">Parking Records</a>
           <a href="/enter" class="list-group-item">Parking Enter</a>
           <a href="/exit" class="list-group-item">Parking Exit</a>
           <a href="#" class="list-group-item">Reports</a>
