@@ -37,22 +37,22 @@
 
   <div class="container-fluid" >
     <div class="row">
-      <div class="col-md-3">
+      <div class="col-md-2">
         <div class="list-group">
           <a href="#" class="list-group-item disabled">
             Control Center
           </a>
+          <a href="/parkings" class="list-group-item">Parking Cars</a>
+          <a href="/enter" class="list-group-item">Parking Enter</a>
+          <a href="/exit" class="list-group-item">Parking Exit</a>
           <a href="#" class="list-group-item">Reports</a>
-          <a href="/parkings" class="list-group-item">Park Cars</a>
-          <a href="/enter" class="list-group-item">Car Enter</a>
-          <a href="/exit" class="list-group-item">Car Exit</a>
           <a href="#" class="list-group-item">Analysis</a>
           <a href="#" class="list-group-item">Settlement</a>
           <a href="#" class="list-group-item">Settlement logs</a>
           <a href="#" class="list-group-item">duty logs</a>
         </div>
       </div>
-      <div class="col-md-9">
+      <div class="col-md-10">
         <%= yield %>
       </div>
     </div>

@@ -1,11 +1,12 @@
 <%- model_class = Parking -%>
 <div class="page-header">
-  <h1><%=t '.title', :default => model_class.model_name.human.pluralize.titleize %></h1>
+  <h1>Parking cars</h1>
 </div>
 <table class="table table-striped">
   <thead>
     <tr>
       <th><%= model_class.human_attribute_name(:id) %></th>
+      <th>Plate</th>
       <th><%= model_class.human_attribute_name(:enter_time) %></th>
       <th><%= model_class.human_attribute_name(:exit_time) %></th>
       <th><%= model_class.human_attribute_name(:park_time) %></th>
@@ -18,6 +19,7 @@
     <% @parkings.each do |parking| %>
       <tr>
         <td><%= link_to parking.id, parking_path(parking) %></td>
+        <td><i class="fa fa-car"></i> <%= parking.car.plate %></td>
         <td><%= parking.enter_time %></td>
         <td><%= parking.exit_time %></td>
         <td><%= parking.park_time %></td>

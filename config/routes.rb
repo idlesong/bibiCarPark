@@ -1,7 +1,10 @@
 Rails.application.routes.draw do
+  resources :payments
+
   resources :parkings
   get 'enter', to: 'parkings#enter'
   get 'exit', to: 'parkings#exit'
+  put 'parkings/:id/payment', to: 'parkings#payment'
 
   resources :cars
 

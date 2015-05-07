@@ -46,4 +46,9 @@ class ParkingsControllerTest < ActionController::TestCase
 
     assert_redirected_to parkings_path
   end
+
+  test "should create parking" do
+  end
+
+
 end

@@ -66,9 +66,11 @@ class ParkingsController < ApplicationController
     begin
       if(params[:plate])
        @car = Car.find_by_plate!(params[:plate])
-       @parking = @car.parkings.create(enter_time: Time.now)
-     else
-     end
+       if( !@car.parkings.where("exit_time is null").first ) then
+         @parking = @car.parkings.create(enter_time: Time.now)
+       end
+      else
+      end
 
     rescue ActiveRecord::RecordNotFound
       @car = Car.create(plate: params[:plate])
@@ -76,17 +78,25 @@ class ParkingsController < ApplicationController
     end
 
 
-    @parkings = Parking.all
+    @parkings = Parking.where("exit_time is null")
   end
 
   def exit
     begin
-      if(params[:plate])
+      if(params[:plate]) then
         @car = Car.find_by_plate!(params[:plate])
-        @parking = @car.parkings.first
-        @parking.exit_time = Time.now
-        @parking.save
-      else
+        @parking = @car.parkings.where("exit_time is null").first
+        if @parking then
+          @parking.exit_time = Time.now
+          @parking.save
+        end
+        # payment
+        @payment = @parking.create_payment()
+        @payment.unit_price = 10
+        @payment.discount = 0
+        @payment.total_time = ((@parking.exit_time - @parking.enter_time)/3600).round
+        @payment.total = @payment.unit_price * (1 - @payment.discount) * (@payment.total_time + 1)
+
       end
 
     rescue ActiveRecord::RecordNotFound
@@ -95,7 +105,7 @@ class ParkingsController < ApplicationController
     end
 
 
-    @parkings = Parking.all
+    @parkings = Parking.where("exit_time is null")
   end
 
   private

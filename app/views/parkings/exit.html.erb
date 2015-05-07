@@ -1,10 +1,35 @@
 <%- model_class = Parking -%>
 <div class="page-header">
-  <h1><%=t '.title', :default => model_class.model_name.human.pluralize.titleize %></h1>
+  <h1>Parking exit</h1>
 </div>
 
 <div class="row">
+
+
   <div class="col-md-8">
+    <div class="row">
+      <div class="col-sm-6 col-md-6">
+        <div class="panel panel-default">
+          <div class="panel-body">
+            <%= image_tag("car_logo2.png") %>
+          </br>苏A20004
+          </div>
+          <div class="panel-footer">Enter Time:</div>
+        </div>
+      </div>
+
+      <div class="col-sm-6 col-md-6">
+        <div class="panel panel-default">
+          <div class="panel-body">
+            <%= image_tag("car_logo2.png") %>
+            </br>Panel content
+          </div>
+          <div class="panel-footer">Exit Time:</div>
+        </div>
+      </div>
+    </div>
+
+
     <table class="table table-striped">
       <thead>
         <tr>
@@ -20,7 +45,7 @@
         <% @parkings.each do |parking| %>
         <tr>
           <td><%= link_to parking.id, parking_path(parking) %></td>
-          <td><%= parking.car.plate %></td>
+          <td><i class="fa fa-car"></i><%= parking.car.plate %></td>
           <td><%= parking.enter_time.strftime("%Y %m %d") %></td>
           <td><%= parking.exit_time %></td>
           <td><%= parking.park_time %></td>
@@ -33,11 +58,33 @@
   </div>
 
   <div class="col-md-4">
+
+    <div class="list-group">
+      <a href="#" class="list-group-item active">
+        Payment
+      </a>
+      <% if @parking %>
+        <%= form_for(@payment) do |f| %>
+          <a href="#" class="list-group-item">Enter Time: <%= @parking.enter_time %></a>
+          <a href="#" class="list-group-item">Exit Time: <%= @parking.exit_time %></a>
+          <a href="#" class="list-group-item">Total Time: <%= f.number_field :total_time %></a>
+          <a href="#" class="list-group-item">Unit Price: <%= f.number_field :unit_price %></a>
+          <a href="#" class="list-group-item">Total(Time*price*(1-discount)): <%= f.number_field :total %></a>
+          <a href="#" class="list-group-item">Get</a>
+          <a href="#" class="list-group-item">Return coion</a>
+
+          <a href="#" class="list-group-item">
+            <%= f.submit %>
+          </a>
+        <% end %>
+      <% end %>
+    </div>
+
     <%= image_tag("car_logo2.png") %>
 
     <%= form_tag("/exit", method: "get") do %>
     <%= text_field_tag(:plate) %>
-    <%= submit_tag("Enter") %>
+    <%= submit_tag("Exit") %>
     <% end %>
 
   </div>

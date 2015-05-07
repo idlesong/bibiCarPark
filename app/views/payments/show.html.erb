@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Unit price:</strong>
+  <%= @payment.unit_price %>
+</p>
+
+<p>
+  <strong>Total time:</strong>
+  <%= @payment.total_time %>
+</p>
+
+<p>
+  <strong>Discount:</strong>
+  <%= @payment.discount %>
+</p>
+
+<p>
+  <strong>Total:</strong>
+  <%= @payment.total %>
+</p>
+
+<%= link_to 'Edit', edit_payment_path(@payment) %> |
+<%= link_to 'Back', payments_path %>
