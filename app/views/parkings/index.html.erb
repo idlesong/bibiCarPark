@@ -12,7 +12,7 @@
       <th><%= model_class.human_attribute_name(:park_time) %></th>
       <th><%= model_class.human_attribute_name(:leave_time) %></th>
       <th><%= model_class.human_attribute_name(:created_at) %></th>
-      <th><%=t '.actions', :default => t("helpers.actions") %></th>
+      <th>status</th>
     </tr>
   </thead>
   <tbody>
@@ -26,13 +26,6 @@
         <td><%= parking.leave_time %></td>
         <td><%=l parking.created_at %></td>
         <td>
-          <%= link_to t('.edit', :default => t("helpers.links.edit")),
-                      edit_parking_path(parking), :class => 'btn btn-mini' %>
-          <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
-                      parking_path(parking),
-                      :method => :delete,
-                      :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
-                      :class => 'btn btn-mini btn-danger' %>
         </td>
       </tr>
     <% end %>

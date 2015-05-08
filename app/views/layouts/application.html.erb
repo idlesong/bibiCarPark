@@ -23,17 +23,17 @@
       <!-- Collect the nav links, forms, and other content for toggling -->
       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
         <ul class="nav navbar-nav">
-          <li class="active"><a href="#">Reports <span class="sr-only">(current)</span></a></li>
-          <li><a href="/parkings">parking</a></li>
-          <li><a href="#">Enter</a></li>
-          <li><a href="#">Exit</a></li>
-          <li><a href="#">Logs</a></li>
+          <li class="active"><a href="/parkings">Parkings <span class="sr-only">(current)</span></a></li>
+          <li><a href="/cars">Cars</a></li>
+          <li><a href="/lots">Lots</a></li>
+          <li><a href="/users">Users</a></li>
+          <li><a href="/payments">Payments</a></li>
           <li><a href="#">Settings</a></li>
 
           <% if logged_in? %>
           <li><%= link_to "Log out", logout_path, method: "delete" %></li>
           <% else %>
-          <li><a href="#">login</a></li>
+          <li><a href="/login">login</a></li>
           <% end %>
         </ul>
       </div>

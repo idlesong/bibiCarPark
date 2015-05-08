@@ -11,8 +11,11 @@
       <div class="col-sm-6 col-md-6">
         <div class="panel panel-default">
           <div class="panel-body">
-            <%= image_tag("car_logo2.png") %>
-          </br>苏A20004
+            <% if @parking %>
+              <%= image_tag("car_id.jpg") %>
+            <% else %>
+              <%= image_tag("car_exit.jpg") %>
+            <% end %>
           </div>
           <div class="panel-footer">Enter Time:</div>
         </div>
@@ -21,8 +24,11 @@
       <div class="col-sm-6 col-md-6">
         <div class="panel panel-default">
           <div class="panel-body">
-            <%= image_tag("car_logo2.png") %>
-            </br>Panel content
+            <% if @parking %>
+              <%= image_tag("car_id.jpg") %>
+            <% else %>
+              <%= image_tag("car_exit.jpg") %>
+            <% end %>
           </div>
           <div class="panel-footer">Exit Time:</div>
         </div>
@@ -69,7 +75,7 @@
           <a href="#" class="list-group-item">Exit Time: <%= @parking.exit_time %></a>
           <a href="#" class="list-group-item">Total Time: <%= f.number_field :total_time %></a>
           <a href="#" class="list-group-item">Unit Price: <%= f.number_field :unit_price %></a>
-          <a href="#" class="list-group-item">Total(Time*price*(1-discount)): <%= f.number_field :total %></a>
+          <a href="#" class="list-group-item">Total Payment: <%= f.number_field :total %></a>
           <a href="#" class="list-group-item">Get</a>
           <a href="#" class="list-group-item">Return coion</a>
 
