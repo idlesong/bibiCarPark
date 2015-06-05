@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  resources :nodes
+
+  resources :hubs
+
   get 'sessions/new'
 
   resources :users
@@ -12,6 +16,7 @@ Rails.application.routes.draw do
   resources :cars
 
   resources :lots
+  get 'devices', to: 'lots#devices'
 
   get    'login'   => 'sessions#new'
   post   'login'   => 'sessions#create'

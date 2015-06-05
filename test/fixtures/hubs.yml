@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  status: MyString
+  hardware_id: MyString
+  max_nodes: 1
+
+two:
+  status: MyString
+  hardware_id: MyString
+  max_nodes: 1

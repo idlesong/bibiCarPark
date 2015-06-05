@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  hardware_id: MyString
+  status: MyString
+  main_hub: 1
+  alt_hub: 1
+  monitor: 1
+  display: 1
+
+two:
+  hardware_id: MyString
+  status: MyString
+  main_hub: 1
+  alt_hub: 1
+  monitor: 1
+  display: 1

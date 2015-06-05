@@ -1,0 +1,29 @@
+<%= form_for(@hub) do |f| %>
+  <% if @hub.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@hub.errors.count, "error") %> prohibited this hub from being saved:</h2>
+
+      <ul>
+      <% @hub.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :status %><br>
+    <%= f.text_field :status %>
+  </div>
+  <div class="field">
+    <%= f.label :hardware_id %><br>
+    <%= f.text_field :hardware_id %>
+  </div>
+  <div class="field">
+    <%= f.label :max_nodes %><br>
+    <%= f.number_field :max_nodes %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

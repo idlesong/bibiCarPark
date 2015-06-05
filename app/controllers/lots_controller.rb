@@ -7,6 +7,12 @@ class LotsController < ApplicationController
     @lots = Lot.all
   end
 
+  # GET /lots/devices
+  #Lots monitor: Devices index
+  def devices
+    @lots = Lot.all
+  end
+
   # GET /lots/1
   # GET /lots/1.json
   def show

@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Hardware:</strong>
+  <%= @node.hardware_id %>
+</p>
+
+<p>
+  <strong>Status:</strong>
+  <%= @node.status %>
+</p>
+
+<p>
+  <strong>Main hub:</strong>
+  <%= @node.main_hub %>
+</p>
+
+<p>
+  <strong>Alt hub:</strong>
+  <%= @node.alt_hub %>
+</p>
+
+<p>
+  <strong>Monitor:</strong>
+  <%= @node.monitor %>
+</p>
+
+<p>
+  <strong>Display:</strong>
+  <%= @node.display %>
+</p>
+
+<%= link_to 'Edit', edit_node_path(@node) %> |
+<%= link_to 'Back', nodes_path %>

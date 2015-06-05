@@ -11,8 +11,8 @@
       <th><%= model_class.human_attribute_name(:exit_time) %></th>
       <th><%= model_class.human_attribute_name(:park_time) %></th>
       <th><%= model_class.human_attribute_name(:leave_time) %></th>
-      <th><%= model_class.human_attribute_name(:created_at) %></th>
-      <th>status</th>
+      <th>Receivable</th>
+      <th>Received</th>
     </tr>
   </thead>
   <tbody>
@@ -24,9 +24,8 @@
         <td><%= parking.exit_time %></td>
         <td><%= parking.park_time %></td>
         <td><%= parking.leave_time %></td>
-        <td><%=l parking.created_at %></td>
-        <td>
-        </td>
+        <td></td>
+        <td></td>
       </tr>
     <% end %>
   </tbody>

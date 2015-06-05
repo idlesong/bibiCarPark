@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150507073610) do
+ActiveRecord::Schema.define(version: 20150605074939) do
 
   create_table "cars", force: true do |t|
     t.string   "plate"
@@ -20,10 +20,37 @@ ActiveRecord::Schema.define(version: 20150507073610) do
     t.datetime "updated_at"
   end
 
+  create_table "hubs", force: true do |t|
+    t.string   "status"
+    t.string   "hardware_id"
+    t.integer  "max_nodes"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "hubs_and_nodes", id: false, force: true do |t|
+    t.integer "hub_id"
+    t.integer "node_id"
+  end
+
+  add_index "hubs_and_nodes", ["hub_id"], name: "index_hubs_and_nodes_on_hub_id"
+  add_index "hubs_and_nodes", ["node_id"], name: "index_hubs_and_nodes_on_node_id"
+
   create_table "lots", force: true do |t|
     t.string   "mark"
     t.string   "area"
     t.string   "coordinate"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "nodes", force: true do |t|
+    t.string   "hardware_id"
+    t.string   "status"
+    t.integer  "main_hub"
+    t.integer  "alt_hub"
+    t.integer  "monitor"
+    t.integer  "display"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
