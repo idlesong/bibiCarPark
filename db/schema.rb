@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150605074939) do
+ActiveRecord::Schema.define(version: 20150626005941) do
 
   create_table "cars", force: true do |t|
     t.string   "plate"
@@ -27,14 +27,6 @@ ActiveRecord::Schema.define(version: 20150605074939) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
-
-  create_table "hubs_and_nodes", id: false, force: true do |t|
-    t.integer "hub_id"
-    t.integer "node_id"
-  end
-
-  add_index "hubs_and_nodes", ["hub_id"], name: "index_hubs_and_nodes_on_hub_id"
-  add_index "hubs_and_nodes", ["node_id"], name: "index_hubs_and_nodes_on_node_id"
 
   create_table "lots", force: true do |t|
     t.string   "mark"
@@ -73,6 +65,14 @@ ActiveRecord::Schema.define(version: 20150605074939) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "parking_id"
+  end
+
+  create_table "registrations", force: true do |t|
+    t.string   "role"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "node_id"
+    t.integer  "hub_id"
   end
 
   create_table "users", force: true do |t|

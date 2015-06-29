@@ -1,0 +1,34 @@
+<h1>Listing registrations</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th># </th>
+      <th>node id</th>
+      <th>hub id</th>
+      <th>Role</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% i = 0 %>
+    <% @registrations.each do |registration| %>
+      <% if registration.role == "alt" %>
+      <tr>
+        <td><%= i = i+1 %>
+        <td><%= registration.node_id %></td>
+        <td><%= registration.hub_id %></td>
+        <td><%= registration.role %></td>
+        <td><%= link_to 'Show', registration %></td>
+        <td><%= link_to 'Edit', edit_registration_path(registration) %></td>
+        <td><%= link_to 'Destroy', registration, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+      <% end %>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Registration', new_registration_path %>

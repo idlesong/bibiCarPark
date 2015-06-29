@@ -32,3 +32,8 @@
 
 <%= link_to 'Edit', edit_node_path(@node) %> |
 <%= link_to 'Back', nodes_path %>
+
+<h3> Registrations </h3>
+<% @node.registrations.each do |reg| %>
+<strong>Hub:</strong> <%= reg.hub_id %> role: <%= reg.role %></br>
+<% end %>

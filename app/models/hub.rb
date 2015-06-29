@@ -1,3 +1,4 @@
 class Hub < ActiveRecord::Base
-  has_and_belongs_to_many :nodes
+  has_many :registrations
+  has_many :nodes, :through => :registrations
 end

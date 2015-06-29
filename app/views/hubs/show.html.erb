@@ -10,14 +10,30 @@
     <%= link_to 'Back', hubs_path %>
   </div>
   <div class="col-md-10">
+
+    <% i =0 %>
     <table class="table table-striped">
       <tbody>
-        <% 5.times do %>
-          <tr>
-            <% 20.times do %>
-              <td><button type="button" class="btn btn-success btn-circle"><i class="fa fa-cab"></i></button></td>
-            <% end %>
-          </tr>
+        <% @hub.nodes.each do |node| %>
+          <% if i%16 == 0 %>
+            <tr>
+          <% end %>
+            
+            <td>
+              <% reg = node.registrations.find_by(hub_id: @hub.id) %>
+              <% if reg.role == 'main' %>
+              <%= button_to("node", node_path(node.id), :class => "btn btn-success btn-circle", method: :get) %>
+              <% else %>
+              <%= button_to("node", node_path(node.id), :class => "btn btn-primary btn-circle", method: :get) %>
+              <% end %>
+              <%= node.hardware_id[4..6] %>
+            </td>
+
+          <% if i%16 == 15 or i == @hub.nodes.length - 1 %>
+            </tr>
+          <% end %>
+
+          <% i = i+1 %>
         <% end %>
       </tbody>
     </table>

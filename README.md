@@ -41,12 +41,3 @@ bibi Car Park system, includes in-out control, park lots status, payment, etc
 1. 多个停车场系统如何并存
 1. 网络化性能不及本地，特别是图片（能否摄像头的数据，一路传server，一路发本地）。
 1. GPRS json如何编程
-
-### schema
-rails g scaffold Hub mark_id:string
-rails g scaffold Node mark_id:string
-
-node1 belongs_to hub1
-node1 belongs_to hub2
-node default_hub
-hub has many nodes
