@@ -34,6 +34,8 @@ gem 'twitter-bootstrap-rails', :git => 'git://github.com/seyhunak/twitter-bootst
 # Use ActiveModel has_secure_password
  gem 'bcrypt', '~> 3.1.7'
 
+gem 'pundit' 
+
 # Use unicorn as the app server
 # gem 'unicorn'
 

@@ -1,5 +1,6 @@
 class Api::V1::BaseController < ApplicationController
   # respond_to :json
+  include Pundit
 
   attr_accessor :current_user
 
@@ -17,13 +18,12 @@ class Api::V1::BaseController < ApplicationController
     token, options = ActionController::HttpAuthentication::Token.token_and_options(request)
 
     user_name = options.blank?? nil : options[:name]
-    user_name = 'admin'
     user = user_name && User.find_by(name: user_name)
 
-    Rails.logger.info("----------token:--#{token.inspect}")
-    Rails.logger.info("----------options:--#{options[:name].inspect}")
-    Rails.logger.info("----------user_name:--#{user_name.inspect}")
-    Rails.logger.info("----------user:--#{user.inspect}")
+    # Rails.logger.info("----------token:--#{token.inspect}")
+    # Rails.logger.info("----------options:--#{options[:name].inspect}")
+    # Rails.logger.info("----------user_name:--#{user_name.inspect}")
+    # Rails.logger.info("----------user:--#{user.inspect}")
 
     if user && ActiveSupport::SecurityUtils.secure_compare(user.authentication_token, token)
        self.current_user = user
