@@ -47,3 +47,19 @@ User.all.each {|user|
   user.password = '123456'
   user.reset_authentication_token!
 }
+
+
+curl -i -X POST -d "user[name]=admin&user[password]=123456" http://localhost:3000/api/v1/sessions
+
+
+curl -i -X PUT -d "user[note]=updatenote" --header "Authorization: Token token=D57k5DTplGdOm6kOIESNcczdb0X/nHhLLfAY8N1bYuFcD1xY2HD42ogeOMOVhMx4zQXRaGB8EmL/nl3Dd2bcsg==,name=admin" http://localhost:3000/api/v1/users/1
+
+curl -i -X PUT -d "user[note]=13800000000" http://localhost:3000/api/v1/users/1
+
+--- bibiCarPark ---
+curl -i -X PUT -d "user[note]=gg-user" --header "Authorization: Token token=D57k5DTplGdOm6kOIESNcczdb0X/nHhLLfAY8N1bYuFcD1xY2HD42ogeOMOVhMx4zQXRaGB8EmL/nl3Dd2bcsg==,  name=admin" http://localhost:3000//api/v1/users/1
+
+
+--- onelog ----
+
+curl -i -X PUT -d "user[email]=gg-user@mail.com" --header "Authorization: Token Ca1bPqrQmWssjYv7s1Z8jp/cReAL0nNL7X6YoiOtQELe9LzB+RqhfBufWDqYAUZwjcYg97+yXCbIK8sZOYsIsg== ,   name=ExUser-1" http://localhost:3000//api/v1/users/2  
