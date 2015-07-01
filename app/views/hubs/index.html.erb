@@ -19,11 +19,17 @@
           <% end %>
             <td>
               <% reg = node.registrations.find_by(hub_id: hub.id) %>
-              <% if reg.role == 'main' %>
+              <% if node.status == 'busy' %>
+                <%= button_to("node", node_path(node.id), :class => "btn btn-danger btn-circle", method: :get) %>
+              <% elsif node.status == 'idle' %>
               <%= button_to("node", node_path(node.id), :class => "btn btn-success btn-circle", method: :get) %>
-              <span class="label label-success"> <%= node.hardware_id[4..6] %></span>
               <% else %>
-              <%= button_to("node", node_path(node.id), :class => "btn btn-primary btn-circle", method: :get) %>
+              <%= button_to("node", node_path(node.id), :class => "btn btn-default btn-circle", method: :get) %>
+              <% end %>
+
+              <% if reg.role == 'main' %>
+              <span class="label label-info"> <%= node.hardware_id[4..6] %></span>
+              <% else %>
               <span class="label label-default"> <%= node.hardware_id[4..6] %></span>
               <% end %>
 

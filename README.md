@@ -56,8 +56,11 @@ curl -i -X PUT -d "user[note]=updatenote" --header "Authorization: Token token=D
 
 curl -i -X PUT -d "user[note]=13800000000" http://localhost:3000/api/v1/users/1
 
---- bibiCarPark ---
+--- bibiCarPark authorization---
 curl -i -X PUT -d "user[note]=gg-user4" --header "Authorization: Token token=D57k5DTplGdOm6kOIESNcczdb0X/nHhLLfAY8N1bYuFcD1xY2HD42ogeOMOVhMx4zQXRaGB8EmL/nl3Dd2bcsg==,  name=admin" http://localhost:3000//api/v1/users/1
+
+--- bibiCarPark upate nodes---
+curl -i -X PUT -d "node[status]=busy" http://localhost:3000/api/v1/nodes/9
 
 
 --- onelog ----
