@@ -33,7 +33,7 @@ Rails.application.routes.draw do
   post   'login'   => 'sessions#create'
   delete 'logout'  => 'sessions#destroy'
 
-  root :to => 'nodes#index', :as => 'nodes'
+  root :to => 'nodes#index', :as => 'allnodes'
 
 
   # The priority is based upon order of creation: first created -> highest priority.
