@@ -1,69 +1,324 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>BibiCarPark</title>
+  <title>BibiParkinglot</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
+
 <body>
-  <nav class="navbar navbar-default">
-    <div class="container-fluid">
-      <!-- Brand and toggle get grouped for better mobile display -->
+
+<div class="navbar navbar-fixed-top bs-docs-nav" role="banner">
+
+    <div class="conjtainer">
+      <!-- Menu button for smallar screens -->
       <div class="navbar-header">
-        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-          <span class="sr-only">Toggle navigation</span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-        </button>
-        <a class="navbar-brand" href="#">bibiCarPark</a>
-      </div>
+		  <button class="navbar-toggle btn-navbar" type="button" data-toggle="collapse" data-target=".bs-navbar-collapse">
+			<span>Menu</span>
+		  </button>
+		  <!-- Site name for smallar screens -->
+		  <a href="index.html" class="navbar-brand hidden-lg">哔哔停车场</a>
+		</div>
 
-      <!-- Collect the nav links, forms, and other content for toggling -->
-      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+
+
+      <!-- Navigation starts -->
+      <nav class="collapse navbar-collapse bs-navbar-collapse" role="navigation">
+
         <ul class="nav navbar-nav">
-          <li class="active"><a href="/parkings">Parkings <span class="sr-only">(current)</span></a></li>
-          <li><a href="/cars">Cars</a></li>
-          <li><a href="/lots">Lots</a></li>
-          <li><a href="/users">Users</a></li>
-          <li><a href="/payments">Payments</a></li>
-          <li><a href="#">Settings</a></li>
 
-          <% if logged_in? %>
-          <li><%= link_to "Log out", logout_path, method: "delete" %></li>
-          <% else %>
-          <li><a href="/login">login</a></li>
-          <% end %>
+          <!-- Upload to server link. Class "dropdown-big" creates big dropdown -->
+          <li class="dropdown dropdown-big">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="label label-success"><i class="fa fa-cloud-upload"></i></span> Upload to Cloud</a>
+            <!-- Dropdown -->
+            <ul class="dropdown-menu">
+              <li>
+                <!-- Progress bar -->
+                <p>Photo Upload in Progress</p>
+                <!-- Bootstrap progress bar -->
+                <div class="progress progress-striped active">
+					<div class="progress-bar progress-bar-info"  role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: 40%">
+						<span class="sr-only">40% Complete</span>
+					</div>
+			    </div>
+
+                <hr />
+
+                <!-- Progress bar -->
+                <p>Video Upload in Progress</p>
+                <!-- Bootstrap progress bar -->
+                <div class="progress progress-striped active">
+					<div class="progress-bar progress-bar-success"  role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" style="width: 80%">
+						<span class="sr-only">80% Complete</span>
+					</div>
+			    </div>
+
+                <hr />
+
+                <!-- Dropdown menu footer -->
+                <div class="drop-foot">
+                  <a href="#">View All</a>
+                </div>
+
+              </li>
+            </ul>
+          </li>
+
+          <!-- Sync to server link -->
+          <li class="dropdown dropdown-big">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="label label-danger"><i class="fa fa-refresh"></i></span> Sync with Server</a>
+            <!-- Dropdown -->
+            <ul class="dropdown-menu">
+              <li>
+                <!-- Using "icon-spin" class to rotate icon. -->
+                <p><span class="label label-info"><i class="fa fa-cloud"></i></span> Syncing Members Lists to Server</p>
+                <hr />
+                <p><span class="label label-warning"><i class="fa fa-cloud"></i></span> Syncing Bookmarks Lists to Cloud</p>
+
+                <hr />
+
+                <!-- Dropdown menu footer -->
+                <div class="drop-foot">
+                  <a href="#">View All</a>
+                </div>
+
+              </li>
+            </ul>
+          </li>
+
         </ul>
-      </div>
 
-    </div><!-- /.container-fluid -->
-  </nav>
+        <!-- Search form -->
+        <form class="navbar-form navbar-left" role="search">
+			<div class="form-group">
+				<input type="text" class="form-control" placeholder="Search">
+			</div>
+		</form>
 
-  <div class="container-fluid" >
-    <div class="row">
-      <div class="col-md-2">
-        <div class="list-group">
-          <a href="#" class="list-group-item disabled">
-            Control Center
-          </a>
-          <a href="/parkings" class="list-group-item">Parking Records</a>
-          <a href="/enter" class="list-group-item">Parking Enter</a>
-          <a href="/exit" class="list-group-item">Parking Exit</a>
-          <a href="#" class="list-group-item">Reports</a>
-          <a href="#" class="list-group-item">Analysis</a>
-          <a href="/hubs" class="list-group-item">Devices</a>
-          <a href="#" class="list-group-item">Settlement logs</a>
-          <a href="#" class="list-group-item">duty logs</a>
+        <!-- Links -->
+        <ul class="nav navbar-nav pull-right">
+          <% if logged_in? %>
+          <li class="dropdown pull-right">
+            <a data-toggle="dropdown" class="dropdown-toggle" href="#">
+              <i class="fa fa-user"></i> <%= current_user.name %> <b class="caret"></b>
+            </a>
+
+            <!-- Dropdown menu -->
+            <ul class="dropdown-menu">
+              <li><a href="#"><i class="fa fa-user"></i> Profile</a></li>
+              <li><a href="#"><i class="fa fa-cogs"></i> Settings</a></li>
+              <li><a href="/logout" data-method="delete"><i class="fa fa-sign-out"></i> Logout</a></li>
+            </ul>
+          </li>
+          <% else %>
+          <li><a href="/login">请登录</a></li>
+          <% end %>
+
+        </ul>
+      </nav>
+
+    </div>
+  </div>
+
+
+<!-- Header starts -->
+  <header>
+    <div class="container">
+      <div class="row">
+
+        <!-- Logo section -->
+        <div class="col-md-4">
+          <!-- Logo. -->
+          <div class="logo">
+            <h1><a href="#"><span class="bold">哔哔停车场</span></a></h1>
+            <p class="meta">致力于打造最人性的停车场</p>
+          </div>
+          <!-- Logo ends -->
         </div>
-      </div>
-      <div class="col-md-10">
-        <%= yield %>
+
+        <!-- Button section -->
+        <div class="col-md-4">
+
+        </div>
+
+        <!-- Data section -->
+
+        <div class="col-md-4">
+          <div class="header-data">
+
+            <!-- Traffic data -->
+            <div class="hdata">
+              <div class="mcol-left">
+                <!-- Icon with red background -->
+                <i class="fa fa-circle-o bgreen"></i>
+              </div>
+              <div class="mcol-right">
+                <!-- Number of visitors -->
+                <p><a href="#">700</a> <em>空车位</em></p>
+              </div>
+              <div class="clearfix"></div>
+            </div>
+
+            <!-- Members data -->
+            <div class="hdata">
+              <div class="mcol-left">
+                <!-- Icon with blue background -->
+                <i class="fa fa-car bred"></i>
+              </div>
+              <div class="mcol-right">
+                <!-- Number of visitors -->
+                <p><a href="#">300</a> <em>有车位</em></p>
+              </div>
+              <div class="clearfix"></div>
+            </div>
+
+            <!-- revenue data -->
+            <div class="hdata">
+              <div class="mcol-left">
+                <!-- Icon with green background -->
+                <i class="fa fa-money bblue"></i>
+              </div>
+              <div class="mcol-right">
+                <!-- Number of visitors -->
+                <p><a href="#">500</a><em>已交费</em></p>
+              </div>
+              <div class="clearfix"></div>
+            </div>
+
+          </div>
+        </div>
+
       </div>
     </div>
+  </header>
 
+<!-- Header ends -->
+
+<!-- Main content starts -->
+
+<div class="content">
+
+  	<!-- Sidebar -->
+    <div class="sidebar">
+        <div class="sidebar-dropdown"><a href="#">Navigation</a></div>
+
+        <!--- Sidebar navigation -->
+        <!-- If the main navigation has sub navigation, then add the class "has_sub" to "li" of main navigation. -->
+        <ul id="nav">
+          <!-- Main menu with font awesome icon -->
+          <li><a href="/exit"><i class="fa fa-home"></i> 离场收费</a></li>
+          <li><a href="/parkings"><i class="fa fa-bar-chart-o"></i> 停车记录 </a></li>
+          <li><a href="/nodes"><i class="fa fa-tasks"></i> 停车位</a></li>
+          <li><a href="/cars"><i class="fa fa-tasks"></i> 进出车辆</a></li>
+          <li class="has_sub"><a href="#"><i class="fa fa-list-alt"></i> 报告分析  <span class="pull-right"><i class="fa fa-chevron-right"></i></span></a>
+            <ul>
+              <li><a href="#">当天停车记录</a></li>
+              <li><a href="#">当月停车记录</a></li>
+              <li><a href="#">月结客户记录</a></li>
+            </ul>
+          </li>
+          <li class="has_sub"><a href="#"><i class="fa fa-file-o"></i> 设备管理  <span class="pull-right"><i class="fa fa-chevron-right"></i></span></a>
+            <ul>
+              <li><a href="/hubs">集中器HUB</a></li>
+              <li><a href="/nodes">车位检测终端</a></li>
+              <li><a href="/lots">出入口设备</a></li>
+            </ul>
+          </li>
+          <li class="has_sub"><a href="#"><i class="fa fa-file-o"></i> 设置  <span class="pull-right"><i class="fa fa-chevron-right"></i></span></a>
+            <ul>
+              <li><a href="#">停车场营业时间</a></li>
+              <li><a href="#">停车场收费</a></li>
+              <li><a href="#">停车场值班方式</a></li>
+            </ul>
+          </li>
+          <li><a href="/enter"><i class="fa fa-magic"></i> 车辆入场</a></li>
+        </ul>
+    </div>
+
+    <!-- Sidebar ends -->
+
+  	<!-- Main bar -->
+  	<div class="mainbar">
+
+      <!-- Page heading -->
+      <div class="page-head">
+        <h2 class="pull-left"><i class="fa fa-home"></i> Dashboard</h2>
+
+        <!-- Breadcrumb -->
+        <div class="bread-crumb pull-right">
+          <a href="index.html"><i class="fa fa-home"></i> Home</a>
+          <!-- Divider -->
+          <span class="divider">/</span>
+          <a href="#" class="bread-current">Dashboard</a>
+        </div>
+
+        <div class="clearfix"></div>
+
+      </div>
+      <!-- Page heading ends -->
+
+
+	    <!-- Matter -->
+
+	    <div class="matter">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-12">
+
+              <div class="widget">
+                <div class="widget-head">
+                  <div class="pull-left">Title</div>
+                  <div class="widget-icons pull-right">
+                    <a href="#" class="wminimize"><i class="fa fa-chevron-up"></i></a>
+                    <a href="#" class="wclose"><i class="fa fa-times"></i></a>
+                  </div>
+                  <div class="clearfix"></div>
+                </div>
+                <div class="widget-content">
+                  <div class="padd">
+                    <!-- Content goes here -->
+
+                    <%= yield %>
+                  </div>
+                  <div class="widget-foot">
+                    <!-- Footer goes here -->
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+		  </div>
+
+		<!-- Matter ends -->
+
+    </div>
+
+   <!-- Mainbar ends -->
+   <div class="clearfix"></div>
+
+</div>
+<!-- Content ends -->
+
+<!-- Footer starts -->
+<footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+            <!-- Copyright info -->
+            <p class="copy">Copyright &copy; 2015 | <a href="#">bibiParkinglot</a> </p>
+      </div>
+    </div>
   </div>
+</footer>
+
+<!-- Footer ends -->
+
+<!-- Scroll to top -->
+<span class="totop"><a href="#"><i class="fa fa-chevron-up"></i></a></span>
+
 
 </body>
 </html>

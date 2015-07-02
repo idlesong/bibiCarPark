@@ -1,17 +1,71 @@
 <% provide(:title, "Log in") %>
 <h1>Log in</h1>
 
-<div class="row">
-  <div class="col-md-6 col-md-offset-3">
-    <%= form_for(:session, url: login_path) do |f| %>
-      <%= f.label :name %>
-      <%= f.text_field :name, class: 'form-control' %>
+<!-- Form area -->
+<div class="admin-form">
+  <div class="container">
 
-      <%= f.label :password %>
-      <%= f.password_field :password, class: 'form-control' %>
+    <div class="row">
+      <div class="col-md-12">
 
-      <%= f.submit "Log in", class: "btn btn-primary" %>
-    <% end %>
+        <!-- Widget starts -->
+            <div class="widget worange">
+              <!-- Widget head -->
+              <div class="widget-head">
+                <i class="fa fa-lock"></i> Login
+              </div>
 
+              <div class="widget-content">
+                <div class="padd">
+                  <!-- Login form -->
+                  <%= form_for(:session, url: login_path, class: "form-horizontal") do |f| %>
+
+                    <!-- Email -->
+                    <div class="form-group">
+                      <label class="control-label col-lg-3" for="inputEmail">Name</label>
+                      <div class="col-lg-9">
+                        <%= f.text_field :name, class: 'form-control', id: 'inputEmail', placeholder: "Name"%>
+                      </div>
+                    </div>
+                    </br>
+                    <!-- Password -->
+                    <div class="form-group">
+                      <label class="control-label col-lg-3" for="inputPassword">Password</label>
+                      <div class="col-lg-9">
+                        <%= f.password_field :password, class: 'form-control',  id: "inputPassword", placeholder: "Password"%>
+                      </div>
+                    </div>
+                    <!-- Remember me checkbox and sign in button -->
+                    <div class="form-group">
+            					<div class="col-lg-9 col-lg-offset-3">
+                                  <div class="checkbox">
+                                    <label>
+                                      <input type="checkbox"> Remember me
+                                    </label>
+            						</div>
+            					</div>
+					          </div>
+                    <div class="col-lg-9 col-lg-offset-3">
+                      <%= f.submit "Sign in", class: "btn btn-info btn-sm" %>
+        							<button type="reset" class="btn btn-default btn-sm">Reset</button>
+        						</div>
+                    <br />
+
+                    <% end %>
+				            </div>
+
+                </div>
+                </br></br></br>
+
+
+                <div class="widget-foot">
+                  Not Registred? <a href="#">Register here</a>
+                </div>
+            </div>
+
+
+
+      </div>
+    </div>
   </div>
 </div>
