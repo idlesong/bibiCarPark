@@ -66,3 +66,5 @@ curl -i -X PUT -d "node[status]=busy" http://localhost:3000/api/v1/nodes/9
 --- onelog ----
 
 curl -i -X PUT -d "user[email]=gg-user@mail.com" --header "Authorization: Token Ca1bPqrQmWssjYv7s1Z8jp/cReAL0nNL7X6YoiOtQELe9LzB+RqhfBufWDqYAUZwjcYg97+yXCbIK8sZOYsIsg== ,   name=ExUser-1" http://localhost:3000//api/v1/users/2  
+
+some test
