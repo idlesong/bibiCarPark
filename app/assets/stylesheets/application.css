@@ -809,8 +809,8 @@
  }
 
  .mainbar .container{
-    max-width:100% !important;
- 	width: 100% !important;
+    max-width:100% ;
+ 	width: 100%;
  }
 
  /* Pagination*/
@@ -1666,8 +1666,8 @@
  }
 
  .admin-form .container{
- 	width:100% !important;
- 	max-width:100% !important;
+ 	width:100%;
+ 	max-width:100%;
  }
 
  .admin-form form{
@@ -1742,7 +1742,7 @@
 
  footer .container{
  	width:100%;
- 	max-width:100% !important;
+ 	max-width:100%;
  }
 
  footer a, footer a:visited{
