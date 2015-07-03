@@ -13,14 +13,14 @@
 
 ActiveRecord::Schema.define(version: 20150629024403) do
 
-  create_table "cars", force: true do |t|
+  create_table "cars", force: :cascade do |t|
     t.string   "plate"
     t.string   "type"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  create_table "hubs", force: true do |t|
+  create_table "hubs", force: :cascade do |t|
     t.string   "status"
     t.string   "hardware_id"
     t.integer  "max_nodes"
@@ -28,7 +28,7 @@ ActiveRecord::Schema.define(version: 20150629024403) do
     t.datetime "updated_at"
   end
 
-  create_table "lots", force: true do |t|
+  create_table "lots", force: :cascade do |t|
     t.string   "mark"
     t.string   "area"
     t.string   "coordinate"
@@ -36,7 +36,7 @@ ActiveRecord::Schema.define(version: 20150629024403) do
     t.datetime "updated_at"
   end
 
-  create_table "nodes", force: true do |t|
+  create_table "nodes", force: :cascade do |t|
     t.string   "hardware_id"
     t.string   "status"
     t.integer  "main_hub"
@@ -47,7 +47,7 @@ ActiveRecord::Schema.define(version: 20150629024403) do
     t.datetime "updated_at"
   end
 
-  create_table "parkings", force: true do |t|
+  create_table "parkings", force: :cascade do |t|
     t.datetime "enter_time"
     t.datetime "exit_time"
     t.datetime "park_time"
@@ -57,7 +57,7 @@ ActiveRecord::Schema.define(version: 20150629024403) do
     t.integer  "car_id"
   end
 
-  create_table "payments", force: true do |t|
+  create_table "payments", force: :cascade do |t|
     t.integer  "unit_price"
     t.integer  "total_time"
     t.integer  "discount"
@@ -67,7 +67,7 @@ ActiveRecord::Schema.define(version: 20150629024403) do
     t.integer  "parking_id"
   end
 
-  create_table "registrations", force: true do |t|
+  create_table "registrations", force: :cascade do |t|
     t.string   "role"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -75,7 +75,7 @@ ActiveRecord::Schema.define(version: 20150629024403) do
     t.integer  "hub_id"
   end
 
-  create_table "users", force: true do |t|
+  create_table "users", force: :cascade do |t|
     t.string   "name"
     t.string   "contact"
     t.string   "sex"

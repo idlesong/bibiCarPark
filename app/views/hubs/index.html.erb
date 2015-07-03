@@ -14,7 +14,7 @@
     <table class="table table-striped">
       <tbody>
         <% hub.nodes.each do |node| %>
-          <% if i%16 == 0 %>
+          <% if i%12 == 0 %>
             <tr>
           <% end %>
             <td>
@@ -28,13 +28,13 @@
               <% end %>
 
               <% if reg.role == 'main' %>
-              <span class="label label-info"> <%= node.hardware_id[4..6] %></span>
+              <span class="label label-info"> N<%= node.hardware_id %></span>
               <% else %>
-              <span class="label label-default"> <%= node.hardware_id[4..6] %></span>
+              <span class="label label-default">N<%= node.hardware_id %></span>
               <% end %>
 
             </td>
-          <% if i%16 == 15 or i == hub.nodes.length - 1 %>
+          <% if i%12 == 11 or i == hub.nodes.length - 1 %>
             </tr>
           <% end %>
 

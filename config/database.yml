@@ -2,7 +2,7 @@
 #   gem install sqlite3
 #
 #   Ensure the SQLite 3 gem is defined in your Gemfile
-#   gem 'sqlite3' or gem 'postgresql'
+#   gem 'sqlite3' or gem 'postgresql'; don't forget change the gemfile
 #
 default: &default
   adapter: postgresql
