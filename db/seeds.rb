@@ -29,12 +29,12 @@ end
 end
 
 
-i =1
+i =0
 nodes = Node.all
 nodes.each do |node|
   reg = node.registrations.where(role: 'alt').take
   if reg
-    reg.hub_id = (2 + i/50) % 4
+    reg.hub_id = (1 + i/50) % 4 + 1
     reg.save
   end
   i = i+1
